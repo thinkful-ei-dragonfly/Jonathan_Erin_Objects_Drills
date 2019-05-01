@@ -125,31 +125,75 @@
 // const objArr = [obj3, obj4, obj5];
 // objArr.forEach(object => console.log(`Job: ${object['job title']}, Name: ${object['name']}`));
 
-function Employee(name, jobTitle) {
-  this.name = name;
-  this.jobTitle = jobTitle;
-}
 
-function Owner(name, jobTitle) {
-  this.name = name;
-  this.jobTitle = jobTitle;
-}
+//properties that aren't there
+
+// function Employee(name, jobTitle) {
+//   this.name = name;
+//   this.jobTitle = jobTitle;
+// }
+
+// function Owner(name, jobTitle) {
+//   this.name = name;
+//   this.jobTitle = jobTitle;
+// }
 
 
-const obj6 = new Employee('Bud', 'Programmer');
-const obj7 = new Employee('Sally', 'Student');
-const obj8 = new Owner('Erin', 'Unemployed');
+// const obj6 = new Employee('Bud', 'Programmer');
+// const obj7 = new Employee('Sally', 'Student');
+// const obj8 = new Owner('Erin', 'Unemployed');
 
-Employee.prototype.boss = 'Erin';
+// Employee.prototype.boss = 'Erin';
 
-console.log(obj6);
+// console.log(obj6);
 
-const objArr2 = [obj6, obj7, obj8];
+// const objArr2 = [obj6, obj7, obj8];
 
-objArr2.forEach(function(object) {
-  if ('boss' in object) {
-    console.log(`${object['jobTitle']} ${object['name']} reports to ${object['boss']}`);
-  } else {
-    console.log(`${object['jobTitle']} ${object['name']} doesn't report to anybody.`);
+// objArr2.forEach(function(object) {
+//   if ('boss' in object) {
+//     console.log(`${object.jobTitle} ${object['name']} reports to ${object['boss']}`);
+//   } else {
+//     console.log(`${object['jobTitle']} ${object['name']} doesn't report to anybody.`);
+//   }
+// });
+
+
+//cracking the code
+
+const cipher = {
+  a: 2,
+  b: 3,
+  c: 4,
+  d: 5,
+};
+
+function decode(word) {
+  if (!(word[0] in cipher)) {
+    return ' ';
   }
-});
+  else {
+    for (let key in cipher) {
+      if (key === word[0]) {  
+        //return cipher[key];
+        return word[cipher[key]-1];
+      }
+    }
+  }
+}
+
+let wordTest = 'apple';
+let testing = decode(wordTest);
+console.log(testing);
+
+function decodeWords(string) {
+  let result3 = [];
+  let stringArray = string.split(' ');
+  stringArray.forEach(message => result3.push(decode(message)));
+  return result3.join('');
+
+
+}
+
+let stringExample = 'craft block argon meter bells brown croon droop';
+let finalAnswer = decodeWords(stringExample);
+console.log(finalAnswer);
