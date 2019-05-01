@@ -64,61 +64,92 @@
 // console.log(example);
 
 
-function validateKeys(object, expectedKeys) {
-  if (Object.keys(object).length !== expectedKeys.length) {
-    return false;
+// function validateKeys(object, expectedKeys) {
+//   if (Object.keys(object).length !== expectedKeys.length) {
+//     return false;
+//   }
+
+//   for (let i = 0; i <expectedKeys.length; i++) {
+//     if (!Object.keys(object).find(expKey => expKey === expectedKeys[i])) {
+//       return false;
+//     }
+//   } 
+//   //why doesn't this work?
+//   // else {for (let i =0; i < expectedKeys.length; i++) {
+//   //   if (expectedKeys[i] in object) {
+//   //     return true;}
+// }
+
+// const objectA = {
+//   id: 2,
+//   name: 'Jane Doe',
+//   age: 34,
+//   city: 'Chicago',
+// };
+
+// const objectB = {
+//   id: 3,
+//   age: 33,
+//   city: 'Peoria',
+//   hello: 'hi',
+// };
+
+// const expectedKeys = ['id', 'name', 'age', 'city'];
+
+// let test1 = validateKeys(objectB, expectedKeys);
+// console.log(test1);
+
+// const loaf = {flour: 300, water: 210};
+// for(let key in loaf){
+//   console.log(key);
+// }
+// loaf.hydration = function(){
+//   return ((this.water/this.flour) * 100);
+// };
+// console.log(loaf.hydration());
+
+// const obj = {foo: 'foo', bar: 'bar', fum: 25, quux: 70};
+// for(let key in obj){
+//   console.log(`${key}: ${obj[key]}`);
+// }
+
+
+// const obj2 = {meals: ['breakfast', 'second breakfast', 'elevenses', 'lunch', 'afternoon tea', 'dinner', 'supper']}
+// console.log(obj2.meals[3]);
+
+
+// const obj3 = {name: 'Bud', 'job title': 'Programmer'};
+// const obj4 = {name: 'Sally', 'job title': 'Student'};
+// const obj5 = {name: 'Erin', 'job title': 'Unemployed'};
+
+// const objArr = [obj3, obj4, obj5];
+// objArr.forEach(object => console.log(`Job: ${object['job title']}, Name: ${object['name']}`));
+
+function Employee(name, jobTitle) {
+  this.name = name;
+  this.jobTitle = jobTitle;
+}
+
+function Owner(name, jobTitle) {
+  this.name = name;
+  this.jobTitle = jobTitle;
+}
+
+
+const obj6 = new Employee('Bud', 'Programmer');
+const obj7 = new Employee('Sally', 'Student');
+const obj8 = new Owner('Erin', 'Unemployed');
+
+Employee.prototype.boss = 'Erin';
+
+console.log(obj6);
+
+const objArr2 = [obj6, obj7, obj8];
+
+objArr2.forEach(function(object) {
+  if ('boss' in object) {
+    console.log(`${object['jobTitle']} ${object['name']} reports to ${object['boss']}`);
+  } else {
+    console.log(`${object['jobTitle']} ${object['name']} doesn't report to anybody.`);
   }
-
-  for (let i = 0; i <expectedKeys.length; i++) {
-    if (!Object.keys(object).find(expKey => expKey === expectedKeys[i])) {
-      return false;
-    }
-  } 
-  //why doesn't this work?
-  // else {for (let i =0; i < expectedKeys.length; i++) {
-  //   if (expectedKeys[i] in object) {
-  //     return true;}
-}
-
-const objectA = {
-  id: 2,
-  name: 'Jane Doe',
-  age: 34,
-  city: 'Chicago',
-};
-
-const objectB = {
-  id: 3,
-  age: 33,
-  city: 'Peoria',
-  hello: 'hi',
-};
-
-const expectedKeys = ['id', 'name', 'age', 'city'];
-
-let test1 = validateKeys(objectB, expectedKeys);
-console.log(test1);
-
-const loaf = {flour: 300, water: 210};
-for(let key in loaf){
-  console.log(key);
-}
-loaf.hydration = function(){
-  return ((this.water/this.flour) * 100);
-};
-console.log(loaf.hydration());
-
-const obj = {foo: 'foo', bar: 'bar', fum: 25, quux: 70};
-for(let key in obj){
-  console.log(`${key}: ${obj[key]}`);
-}
-
-const obj2 = {meals: ['breakfast', 'second breakfast', 'elevenses', 'lunch', 'afternoon tea', 'dinner', 'supper']}
-console.log(obj2.meals[3]);
-
-const obj3 = {name: 'Bud', 'job title': 'Programmer'};
-const obj4 = {name: 'Sally', 'job title': 'Student'};
-const obj5 = {name: 'Erin', 'job title': 'Unemployed'};
-
-const objArr = [obj3, obj4, obj5];
-objArr.forEach(object => console.log(`Job: ${object['job title']}, Name: ${object['name']}`));
+});
