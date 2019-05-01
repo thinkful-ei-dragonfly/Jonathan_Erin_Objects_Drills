@@ -218,4 +218,6 @@ let characters = [
 ];
 
 characters.push(createCharacter('Arwen Undomiel', 'arwen', 'Half-Elf', 'Rivendale',7,5));
-characters.find(char => char.nickname === 'gandalf').describe();
+characters.find(char => char.nickname === 'aragorn').describe();
+const hobbits = characters.filter(char => char.race === 'Hobbit');
+const strong = characters.filter(char => char.attack > 5);
