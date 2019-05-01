@@ -107,3 +107,18 @@ loaf.hydration = function(){
   return ((this.water/this.flour) * 100);
 };
 console.log(loaf.hydration());
+
+const obj = {foo: 'foo', bar: 'bar', fum: 25, quux: 70};
+for(let key in obj){
+  console.log(`${key}: ${obj[key]}`);
+}
+
+const obj2 = {meals: ['breakfast', 'second breakfast', 'elevenses', 'lunch', 'afternoon tea', 'dinner', 'supper']}
+console.log(obj2.meals[3]);
+
+const obj3 = {name: 'Bud', 'job title': 'Programmer'};
+const obj4 = {name: 'Sally', 'job title': 'Student'};
+const obj5 = {name: 'Erin', 'job title': 'Unemployed'};
+
+const objArr = [obj3, obj4, obj5];
+objArr.forEach(object => console.log(`Job: ${object['job title']}, Name: ${object['name']}`));
