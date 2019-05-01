@@ -197,3 +197,26 @@ function decodeWords(string) {
 let stringExample = 'craft block argon meter bells brown croon droop';
 let finalAnswer = decodeWords(stringExample);
 console.log(finalAnswer);
+
+function createCharacter(name, nickname, race, origin, attack, defense){
+  return {name, nickname, race, origin, attack, defense, describe: function(){
+    console.log(`${this.name} is a ${this.race} from ${this.origin}`);
+  }, evaluateFight: function(character){
+    let x = this.attack - character.defense;
+    let y = character.attack - this.defense;
+    if(x < 0){
+      x = 0;
+    }
+    if(y < 0){
+      y = 0;
+    }
+    return `Your opponent takes ${x} damage and you receive ${y} damage.` 
+  }}};
+
+let characters = [
+  createCharacter('Gandalf the White', 'gandalf','Wizard','Middle Earth',10,6), 
+  createCharacter('Bilbo Baggins', 'bilbo','Hobbit','The Shire',2,1)
+];
+
+characters.push(createCharacter('Legolas', 'legolas', 'Elf', 'Woodland Realm',8,5));
+characters.find(char => char.nickname === 'gandalf').describe();
