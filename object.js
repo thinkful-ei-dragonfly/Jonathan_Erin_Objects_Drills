@@ -98,3 +98,12 @@ const expectedKeys = ['id', 'name', 'age', 'city'];
 
 let test1 = validateKeys(objectB, expectedKeys);
 console.log(test1);
+
+const loaf = {flour: 300, water: 210};
+for(let key in loaf){
+  console.log(key);
+}
+loaf.hydration = function(){
+  return ((this.water/this.flour) * 100);
+};
+console.log(loaf.hydration());
