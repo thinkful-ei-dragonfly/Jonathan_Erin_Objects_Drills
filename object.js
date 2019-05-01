@@ -39,14 +39,62 @@
 //   return result;
 // }
 
-function enrollInSummerSchool(students){
-  return students.map(student => {
-    return {    
-      name: student.name,
-      status: 'In Summer School',
-      course: student.course,
-    };
-  });
+//why the second return?
+// function enrollInSummerSchool(students){
+//   return students.map(student => {
+//     return {    
+//       name: student.name,
+//       status: 'In Summer School',
+//       course: student.course,
+//     };
+//   });
+// }
+
+// const scratchData = [
+//   { id: 22, foo: 'bar' },
+//   { id: 28, foo: 'bizz' },
+//   { id: 19, foo: 'bazz' },
+// ];
+
+// function findById(items, idNum) {
+//   return items.find(value => value.id === idNum);
+// }
+
+// let example = findById(scratchData, 19);
+// console.log(example);
+
+
+function validateKeys(object, expectedKeys) {
+  if (Object.keys(object).length !== expectedKeys.length) {
+    return false;
+  }
+
+  for (let i = 0; i <expectedKeys.length; i++) {
+    if (!Object.keys(object).find(expKey => expKey === expectedKeys[i])) {
+      return false;
+    }
+  } 
+  //why doesn't this work?
+  // else {for (let i =0; i < expectedKeys.length; i++) {
+  //   if (expectedKeys[i] in object) {
+  //     return true;}
 }
 
+const objectA = {
+  id: 2,
+  name: 'Jane Doe',
+  age: 34,
+  city: 'Chicago',
+};
 
+const objectB = {
+  id: 3,
+  age: 33,
+  city: 'Peoria',
+  hello: 'hi',
+};
+
+const expectedKeys = ['id', 'name', 'age', 'city'];
+
+let test1 = validateKeys(objectB, expectedKeys);
+console.log(test1);
