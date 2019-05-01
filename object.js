@@ -181,10 +181,6 @@ function decode(word) {
   }
 }
 
-let wordTest = 'apple';
-let testing = decode(wordTest);
-console.log(testing);
-
 function decodeWords(string) {
   let result3 = [];
   let stringArray = string.split(' ');
@@ -215,8 +211,11 @@ function createCharacter(name, nickname, race, origin, attack, defense){
 
 let characters = [
   createCharacter('Gandalf the White', 'gandalf','Wizard','Middle Earth',10,6), 
-  createCharacter('Bilbo Baggins', 'bilbo','Hobbit','The Shire',2,1)
+  createCharacter('Bilbo Baggins', 'bilbo','Hobbit','The Shire',2,1),
+  createCharacter('Frodo Baggins', 'frodo', 'Hobbit', 'The Shire', 3, 2),
+  createCharacter('Aragorn son of Arathorn', 'aragorn', 'Man', 'Dunnedain',6,8),
+  createCharacter('Legolas', 'legolas', 'Elf', 'Woodland Realm',8,5)
 ];
 
-characters.push(createCharacter('Legolas', 'legolas', 'Elf', 'Woodland Realm',8,5));
+characters.push(createCharacter('Arwen Undomiel', 'arwen', 'Half-Elf', 'Rivendale',7,5));
 characters.find(char => char.nickname === 'gandalf').describe();
