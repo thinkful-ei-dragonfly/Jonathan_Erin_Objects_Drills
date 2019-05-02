@@ -126,7 +126,7 @@ const objArr = [obj3, obj4, obj5];
 objArr.forEach(object => console.log(`Job: ${object['job title']}, Name: ${object['name']}`));
 
 
-properties that aren't there
+// properties that aren't there
 
 function Employee(name, jobTitle) {
   this.name = name;
